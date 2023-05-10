@@ -1,0 +1,74 @@
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+.newsCard {
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+    .newsCard_div {
+
+        .newsCard_img {
+            width: 150px;
+            height: 100%;
+            box-shadow: 4px 3px 2px rgba(0, 0, 0, 0.5);
+            @include mobile {
+                height: auto;
+                width: 80vw;
+                object-fit: contain;
+            }
+            &:hover {
+                transform: scale(1.05, 1.05);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .newsCard_text {
+        @include mobile { 
+            margin-top: 12px;
+        }
+        margin-left: 14px;
+        h2 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+        p {
+            color: #666;
+            font-size: 1.2rem;
+            font-weight: 300;
+
+            @include mobile {
+                width: 80vw;
+            }
+        }
+    }
+
+    & + .newsCard {
+        margin-top: 8px;
+    }
+}

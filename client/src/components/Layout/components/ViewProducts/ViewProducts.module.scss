@@ -1,0 +1,21 @@
+
+.block_section {
+    padding: 70px;
+}
+.aboutTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    .aboutTitle_space {
+        position: absolute;
+        bottom: -6px;
+        width: 80px;
+        text-align: center;
+        border: 1px solid var(--primary);
+    }
+}

@@ -1,0 +1,32 @@
+.success-block {
+    position: fixed;
+    top: 50px;
+    right: 32px;
+    color: var(--light);
+    z-index: 999999;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    transition: all linear 0.3s;
+    .alert-icon {
+        font-size: 3.5rem;
+    }
+
+    .alert-span {
+        margin-left: 8px;
+        font-size: 2rem;
+    }
+}
+
+.toast--success {
+    border-color: #47d864;
+    background-color: #47d864;
+}
+
+.toast--error {
+    border-color: #ff623d;
+    background-color: #ff623d;
+}

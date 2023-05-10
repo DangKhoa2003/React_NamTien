@@ -1,0 +1,292 @@
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+.partnerTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    .partnerTitle_space {
+        width: 50px;
+        position: absolute;
+        bottom: 0;
+        border: 1px solid var(--primary);
+    }
+}
+
+.partnerLogo {
+    margin-top: 60px;
+}
+
+.form_advise {
+    background-color: #fae3b0;
+    padding: 40px 0;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 999;
+    right: 0;
+    left: 0;
+    bottom: -108px;
+
+    @include tablet {
+        padding: 40px 12px;
+    }
+
+    @include mobile {
+        width: 80vw;
+        bottom: -240px;
+    }
+    p {
+        letter-spacing: 0.6px;
+        color: var(--primary);
+        font-weight: 500;
+        font-size: 1.7rem;
+        @include tablet {
+            padding: 0 12px;
+        }
+        @include mobile {
+            padding: 0 12px;
+        }
+    }
+
+    .form_advise-tagForm {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        border-radius: 10px;
+        border: 1px solid var(--primary);
+        height: 60px;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .form_advise-input {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--primary);
+            border-right: 1px solid var(--primary);
+            margin-left: 24px;
+            @include mobile {
+                margin-left: 0;
+                border: 1px solid var(--primary);
+                width: 100% !important;
+                padding: 10px;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+            input {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                font-size: 1.8rem;
+                padding: 0px 10px;
+                color: var(--primary);
+            }
+
+            & + .form_advise-input {
+                border-right: none;
+                @include mobile {
+                    margin-top: 12px;
+                    border-top-right-radius: 0px;
+                    border-top-left-radius: 0px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+            }
+        }
+
+        .form_advise-btn {
+            width: 20%;
+            height: 100%;
+            color: var(--light);
+            background-color: var(--primary);
+            border: none;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+
+            @include mobile {
+                width: 70%;
+                border-radius: 10px;
+                padding: 8px 0;
+                font-size: 1.5rem;
+                margin: 12px 0;
+            }
+        }
+    }
+}
+
+.partnerCompany {
+    @include tablet {
+        width: 100% !important;
+        display: none !important;
+    }
+
+    @include mobile {
+        display: none !important;
+    }
+    .company {
+        img:hover {
+            transform: scale(1.1, 1.1);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        @include mobile {
+            width: 100vw;
+        }
+        @include tablet {
+            width: 100vw;
+        }
+    }
+}
+
+.company_mobile--container {
+    @include desktop {
+        display: none !important;
+    }
+}
+.company_mobile {
+    img {
+        width: auto !important;
+        &:hover {
+            transform: scale(1.1, 1.1);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        @include mobile {
+            width: 80% !important;
+            height: auto;
+        }
+    }
+}
+
+.block_partner {
+    padding: 70px 0 200px;
+    position: relative;
+
+    @include mobile {
+        padding: 30px 0 250px;
+    }
+}
+
+
+.block_section {
+    padding: 250px 0 70px;
+    position: relative;
+    top: -30px;
+    z-index: 0;
+    background-color: #001b44;
+    border-bottom: 1px solid var(--light);
+    width: 100%;
+    @include mobile {
+        padding: 300px 0 70px;
+    }
+
+    @include tablet {
+        padding: 170px 0 70px;
+    }
+}
+
+.footer_content {
+    @include mobile {
+        max-width: 80vw !important;
+    }
+
+    @include tablet {
+        max-width: 80vw !important;
+    }
+    .footer_info {
+        color: var(--light);
+        h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 1.8px;
+            @include mobile {
+                margin-top: 24px;
+                text-align: center;
+            }
+            @include tablet {
+                margin-top: 30px;
+                text-align: center;
+            }
+        }
+
+        .footer_info--div {
+            margin-top: 30px;
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                @include mobile {
+                    text-align: center;
+                }
+
+                @include tablet {
+                    text-align: center;
+                }
+            }
+            .footer-fanpage {
+                width: 100%;
+                @include mobile {
+                    width: 80vw;
+                }
+
+                @include tablet {
+                    width: 80vw;
+                }
+            }
+        }
+    }
+}
+
+.footer_Copyright {
+    background-color: #001b44;
+    margin-top: -30px;
+    width: 100%;
+    p {
+        color: var(--light);
+        text-align: center;
+        font-size: 1.7rem;
+        letter-spacing: 0.1rem;
+        font-weight: 300;
+        @include mobile {
+            font-size: 1.2rem;
+        }
+    }
+}
