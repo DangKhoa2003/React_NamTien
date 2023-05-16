@@ -6,5 +6,6 @@ import banners from './banners';
 import posts from './post';
 import companies from './company';
 import videos from './video';
+import cartReducer from './cart';
 
-export default combineReducers({ products, admin, banners, posts, companies, videos });
+export default combineReducers({ products, admin, banners, posts, companies, videos, cartReducer });

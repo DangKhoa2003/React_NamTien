@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'https://api-namtien.onrender.com/video';
+const url = 'http://localhost:5000/video';
 
 export const fetchVideo = () => axios.get(url);
 export const createVideo = (newVideo) => axios.post(url, newVideo);

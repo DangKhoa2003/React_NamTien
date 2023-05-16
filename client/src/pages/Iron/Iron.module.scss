@@ -1,0 +1,23 @@
+.wrapper {
+    background: linear-gradient(-45deg, #CC66FF , #05dbf2);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .banner {
+        text-align: center;
+        color: var(--primary);
+        h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+        p {
+            margin-top: 12px;
+            font-size: 2.2rem;
+            color: var(--primary);
+            padding: 0 12px;
+        }
+    }
+
+}

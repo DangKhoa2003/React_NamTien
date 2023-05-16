@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'https://api-namtien.onrender.com/post';
+const url = 'http://localhost:5000/post';
 
 export const fetchPosts = () => axios.get(url);
 export const createPosts = (newPost) => axios.post(url, newPost);

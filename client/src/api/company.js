@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'https://api-namtien.onrender.com/company';
+const url = 'http://localhost:5000/company';
 
 export const fetchCompanies = () => axios.get(url);
 export const createCompanies = (newCompany) => axios.post(url, newCompany);

@@ -13,6 +13,7 @@ import EditBanner from '~/pages/EditBanner';
 import Post from '~/pages/Post';
 import Company from '~/pages/Company';
 import VideoYT from '~/pages/VideoYT';
+import Cart from '~/pages/Cart';
 
 // Public routes
 const publicRoutes = [
@@ -30,6 +31,7 @@ const publicRoutes = [
     { path: '/post', component: Post },
     { path: '/company', component: Company },
     { path: '/videoYT', component: VideoYT },
+    { path: '/cart', component: Cart },
 ];
 
 const privateRoutes = [];

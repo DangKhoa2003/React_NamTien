@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'https://api-namtien.onrender.com/banner';
+const url = 'http://localhost:5000/banner';
 
 export const fetchBanners = () => axios.get(url);
 export const createBanners = (newBanner) => axios.post(url, newBanner);

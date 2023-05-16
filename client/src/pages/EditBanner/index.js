@@ -19,6 +19,7 @@ function EditBanner() {
     });
     const dispatch = useDispatch();
     const banners = useSelector((state) => state.banners);
+    
     const banner = useSelector((state) => (currentId ? state.banners.find((p) => p._id === currentId) : null));
 
     useEffect(() => {

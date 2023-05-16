@@ -3,7 +3,7 @@ import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import { MdOutlineCall } from 'react-icons/md';
 import { ImHome } from 'react-icons/im';
-import { FaCircle } from 'react-icons/fa';
+import { BsCart3 } from 'react-icons/bs';
 import { AiOutlineBars } from 'react-icons/ai';
 import { useRef } from 'react';
 const cx = classNames.bind(styles);
@@ -105,7 +105,7 @@ function Header() {
 
                             {admin && (
                                 <h4>
-                                    <a onClick={handleRemoveAdmin} href='/'>
+                                    <a onClick={handleRemoveAdmin} href="/">
                                         Log out
                                     </a>
                                 </h4>
@@ -135,7 +135,9 @@ function Header() {
                         <div className="d-flex align-items-center justify-content-around">
                             <input className={cx('header_input')} type="text" placeholder="Tìm kiếm..." />
                             <div>
-                                <FaCircle className={cx('header_iconCircle')} />
+                                <Link to="/cart">
+                                    <BsCart3 className={cx('header_iconCircle')} />
+                                </Link>
                                 <span>BẠN TƯ VẤN</span>
                             </div>
                         </div>
