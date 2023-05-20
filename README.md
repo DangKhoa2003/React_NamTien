@@ -8,6 +8,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `Tài khoản Admin`
+
+Email: toithich258@gmail.com
+Mật Khẩu: Khoa@#2021
+
 ### `npm start`
 
 Runs the app in the development mode.\

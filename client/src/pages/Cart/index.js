@@ -319,7 +319,7 @@ function Cart() {
                             <fieldset className={cx('cart-fieldset')}>
                                 <legend className={cx('title_cart')}>Order Summary</legend>
                                 <div className={cx('cart_description')}>
-                                    <div className={cx('cart-list')}>
+                                    <div className={cx('cart-list', 'tooLong')}>
                                         {cart.length === 0 ? (
                                             <Loader />
                                         ) : (
