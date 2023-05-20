@@ -179,7 +179,7 @@ $desktop-width: 1024px;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: var(--primary);
+    background: var(--primary) !important;
     border-radius: 7px;
     outline: none;
     color: #ffffff;

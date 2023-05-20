@@ -71,7 +71,7 @@ function Footer(toast) {
                                         'l-2-4',
                                         'c-6',
                                         'my-5',
-                                        'm-6',
+                                        'md-6',
                                         'col',
                                         'd-flex',
                                         'justify-content-center',
@@ -145,8 +145,8 @@ function Footer(toast) {
                             className={cx(
                                 'col',
                                 'l-3',
-                                'm-6',
                                 'c-12',
+                                'md-6',
                                 'd-flex',
                                 'flex-column',
                                 'justify-content-center',
@@ -167,7 +167,7 @@ function Footer(toast) {
                             className={cx(
                                 'col',
                                 'l-2',
-                                'm-6',
+                                'md-6',
                                 'c-12',
                                 'd-flex',
                                 'flex-column',
@@ -189,7 +189,7 @@ function Footer(toast) {
                             className={cx(
                                 'col',
                                 'l-2',
-                                'm-6',
+                                'md-6',
                                 'c-12',
                                 'd-flex',
                                 'flex-column',
@@ -211,7 +211,7 @@ function Footer(toast) {
                             className={cx(
                                 'col',
                                 'l-2',
-                                'm-6',
+                                'md-6',
                                 'c-12',
                                 'd-flex',
                                 'flex-column',
@@ -233,7 +233,7 @@ function Footer(toast) {
                             className={cx(
                                 'col',
                                 'l-3',
-                                'm-6',
+                                'md-6',
                                 'c-12',
                                 'd-flex',
                                 'flex-column',
@@ -244,7 +244,7 @@ function Footer(toast) {
                             <h1>FANPAGE</h1>
 
                             <div className={cx('footer_info--div')}>
-                                <a href="https://www.facebook.com/tranhadangkhoa">
+                                <a className='d-flex' href="https://www.facebook.com/tranhadangkhoa">
                                     <img
                                         className={cx('footer-fanpage')}
                                         src={require('~/assets/img/Fanpage.png')}

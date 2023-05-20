@@ -39,6 +39,11 @@ $desktop-width: 1024px;
         }
 
         .header_nav {
+
+            .header-call {
+                display: flex;
+                align-items: center;
+            }
             h4 {
                 a {
                     color: var(--primary);
@@ -54,7 +59,8 @@ $desktop-width: 1024px;
             }
             .header_input {
                 border-radius: 20px;
-                padding: 0 16px;
+                border: 1px solid var(--primary);
+                padding: 4px 16px;
                 width: 200px;
             }
             .header_iconCall {

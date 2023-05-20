@@ -1,11 +1,12 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
-
+import 'bootstrap-daterangepicker/daterangepicker.css';
 import 'aos/dist/aos.css';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from '~/components/Layout';
 import '~/assets/css/grid.css';
+import './index.css'
 
 function App() {
 

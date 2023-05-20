@@ -94,7 +94,7 @@ function Header() {
                 <div className="d-flex justify-content-between">
                     <nav className={cx('header_nav')}>
                         <div className="d-flex align-items-center justify-content-between">
-                            <div>
+                            <div className={cx('header-call')}>
                                 <MdOutlineCall className={cx('header_iconCall')} />
                                 <span>0938.999.999</span>
                             </div>
@@ -134,7 +134,7 @@ function Header() {
                     <nav className={cx('header_nav')}>
                         <div className="d-flex align-items-center justify-content-around">
                             <input className={cx('header_input')} type="text" placeholder="Tìm kiếm..." />
-                            <div>
+                            <div className={cx('d-flex', 'align-items-center')}>
                                 <Link to="/cart">
                                     <BsCart3 className={cx('header_iconCircle')} />
                                 </Link>

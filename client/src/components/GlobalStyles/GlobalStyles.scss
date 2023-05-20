@@ -50,6 +50,7 @@ body {
 .collapse:not(.show) {
     display: none;
     animation: translateY 0.1s linear;
+    visibility: unset;
 }
 
 .collapse.show {
@@ -57,6 +58,20 @@ body {
     animation: translateY 0.2s linear 0s;
     background: var(--primary);
     border-radius: 30px;
+    visibility: unset;
+}
+
+::selection {
+    background:var(--primary); 
+    color: var(--light);
+}
+::-moz-selection {
+     background:var(--primary); 
+    color: var(--light);
+}
+::-webkit-selection {
+    background:var(--primary); 
+    color: var(--light);
 }
 
 @keyframes translateY {

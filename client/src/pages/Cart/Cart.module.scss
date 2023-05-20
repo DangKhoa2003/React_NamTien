@@ -1,20 +1,75 @@
-.bg_dark {
-    background-color: #c0c0c0;
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
 
+@mixin mobile {
+    @media (max-width: #{$mobile-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+.bg_dark {
+    background-color: #e9e7e7;
+    padding: 50px 0 90px;
+
+    .cart-fieldset {
+        height: 93.8%;
+    }
     .cart-list {
         background-color: var(--light);
+        margin-bottom: 20px;
+    }
+
+    .cart_description {
+        background-color: var(--light);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px 18px;
+        .cart_description-submit {
+            background-color: var(--primary);
+            font-size: 1.8rem;
+            color: var(--light);
+            padding: 14px 0;
+            letter-spacing: 0.5px;
+            position: relative;
+            top: 0;
+            left: 0;
+            &::after {
+                content: '';
+                height: 0;
+                width: 0;
+                border-top: 20px solid var(--light);
+                border-left: 20px solid transparent;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+        }
     }
 
     .cart-item {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 24px 18px;
+        padding: 0 0 24px;
     }
 
     .title_cart {
         font-size: 2.2rem;
-        margin-top: 50px;
         font-weight: 600;
         letter-spacing: 0.1px;
     }
@@ -67,16 +122,19 @@
         cursor: pointer;
 
         &:hover {
-            transform: scale(1.1,1.1);
-            transition: all .3s linear;
+            transform: scale(1.1, 1.1);
+            transition: all 0.3s linear;
         }
     }
 
     .cart-item_quantity {
+        display: flex;
+
         input[name='quantity'] {
             width: 30px;
             font-size: 2rem;
             padding-left: 6px;
+            border: 1px solid #000;
         }
 
         button {
@@ -84,7 +142,165 @@
             font-size: 2rem;
             border-radius: 2px;
             outline: none;
-            background-color: #eee;
+            background-color: #ccc;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+        }
+    }
+
+    .input-container-parents {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & + .input-container-parents {
+            margin-top: 10px;
+        }
+
+        & + .input-container__inline {
+            margin-top: 10px;
+        }
+
+        @include mobile {
+            display: block;
+            width: 100%;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+
+            @include tablet {
+                width: 240px;
+            }
+
+            @include mobile {
+                margin-top: 20px;
+                width: 100%;
+            }
+            input, select {
+                margin-top: 4px;
+                font-size: 1.8rem;
+                padding: 4px 12px;
+                border: 1px solid #c4c4c4;
+                letter-spacing: 1px;
+            }
+
+            label {
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .formInfo {
+       padding: 28px 24px
+    }
+
+    .formRadio {
+        padding: 28px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .label {
+        position: relative;
+        margin: 0 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        input {
+            display: none;
+            &:checked {
+                + {
+                    .buttonRadio {
+                        background: linear-gradient(135deg, aqua 0%, var(--primary) 100%);
+                        box-shadow: 0 10px 20px rgba(38,223,230, 0.4);
+                        &::before {
+                            transform: scale(1.2);
+                            opacity: 1;
+                        }
+                        &::after {
+                            animation: pulse 1.5s infinite;
+                        }
+                    }
+                }
+            }
+        }
+
+        .radioText {
+            font-size: 1.8rem;
+            letter-spacing: 0.3px;
+            margin-left: 12px;
+            text-transform: capitalize;
+        }
+    }
+    .buttonRadio {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #c4c4c4 0%, var(--light) 100%);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        border: 2px solid #000;
+        transition: all 0.3s ease;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.1);
+            transform: scale(1.1);
+            opacity: 0;
+        }
+    }
+    .shadow {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .input-container__inline {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        & + .input-container__inline {
+            margin-top: 30px;
+        }
+        input {
+            margin-top: 4px;
+            font-size: 1.8rem;
+            padding: 4px 12px;
+            border: 1px solid #c4c4c4;
+            letter-spacing: 1px;
+        }
+        label {
+            font-size: 1.6rem;
+            font-weight: 600;
         }
     }
 }

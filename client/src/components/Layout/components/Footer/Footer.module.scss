@@ -204,7 +204,6 @@ $desktop-width: 1024px;
     }
 }
 
-
 .block_section {
     padding: 250px 0 70px;
     position: relative;
@@ -249,6 +248,19 @@ $desktop-width: 1024px;
 
         .footer_info--div {
             margin-top: 30px;
+            @include mobile {
+                a {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            @include tablet {
+                a {
+                    display: flex;
+                    align-items: center;
+                }
+            }
             h3 {
                 font-size: 1.5rem;
                 font-weight: 300;
@@ -265,9 +277,11 @@ $desktop-width: 1024px;
                 width: 100%;
                 @include mobile {
                     width: 80vw;
+                    margin: auto;
                 }
 
                 @include tablet {
+                    margin: auto;
                     width: 80vw;
                 }
             }

@@ -1,3 +1,4 @@
+
 .grid {
     width: 100%;
     display: block;
@@ -5,7 +6,7 @@
 }
 
 .grid.wide {
-    max-width: 1200px;
+    max-width: 1200px !important;
     margin: 0 auto;
 }
 
@@ -159,7 +160,7 @@
     .m-3,
     .m-4,
     .m-5,
-    .m-6,
+    .md-6,
     .m-7,
     .m-8,
     .m-9,
@@ -194,7 +195,7 @@
         max-width: 41.66667%;
     }
 
-    .m-6 {
+    .md-6 {
         flex: 0 0 50%;
         max-width: 50%;
     }
