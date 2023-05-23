@@ -1,5 +1,8 @@
 import classNames from 'classnames/bind';
 import styles from './Login.module.scss';
+
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { BiShow } from 'react-icons/bi';
 import { BiHide } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
@@ -14,15 +17,28 @@ function Login() {
     const navigator = useNavigate();
     const [formData, setFormData] = useState(initialState);
     const dispatch = useDispatch();
+    const MySwal = withReactContent(Swal);
     const admin = useSelector((state) => state.admin);
     const handleSubmit = (e) => {
         e.preventDefault();
         if (formData.email === admin[0].email && formData.password === admin[0].password) {
             localStorage.setItem('accountAdmin', admin[0].email);
-            alert('Đăng nhập thành công');
+            MySwal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Đăng nhập thành công ❤️',
+                showConfirmButton: false,
+                timer: 1500,
+            });
             navigator('/newProduct');
         } else {
-            alert('Đăng nhập không thành công');
+            MySwal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Không ổn rồi Đại Vương ơi, Đăng nhập thất bại 😥',
+                showConfirmButton: false,
+                timer: 3000,
+            });
         }
     };
 
@@ -123,13 +139,13 @@ function Login() {
                         id="password_field"
                     />
                     <button type="button" className={cx('icon_showHide')} onClick={handleShowHide}>
-                        {showPassword ? <BiShow /> : <BiHide />}
+                        {showPassword ? <BiShow className="mb-2" /> : <BiHide className="mb-2" />}
                     </button>
                 </div>
                 <button title="Sign In" type="submit" className={cx('sign-in_btn')}>
                     <span>Sign In</span>
                 </button>
-                
+
                 <p className={cx('note')}>Terms of use &amp; Conditions</p>
             </form>
         </div>

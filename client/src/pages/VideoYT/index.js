@@ -124,15 +124,20 @@ function VideoYT() {
                 <Loader />
             ) : (
                 <div className={cx('container', 'product_container')}>
-                    <div className="row">
+                    <div className="row pe-4">
                         {videos.map((video, index) => (
                             <div key={index} className={cx('col-lg-4', 'mt-5')}>
                                 <div className={cx('productItem')}>
                                     <div className={cx('productItem__content')}>
                                         <h2>{video.name}</h2>
                                         <div className={cx('productItem__description')}>
-                                            <span><span style={{fontWeight: '600'}}>Đường link: </span> {video.link.replace("watch?v=", "embed/").slice(0,41)}</span>
-                                            <span className={cx('mt-4')}><span style={{fontWeight: '600'}}>Nguồn: </span> {video.auth}</span>
+                                            <span>
+                                                <span style={{ fontWeight: '600' }}>Đường link: </span>{' '}
+                                                {video.link.replace('watch?v=', 'embed/').slice(0, 41)}
+                                            </span>
+                                            <span className={cx('mt-4')}>
+                                                <span style={{ fontWeight: '600' }}>Nguồn: </span> {video.auth}
+                                            </span>
                                         </div>
                                     </div>
                                     <div className={cx('productItem__action')}>

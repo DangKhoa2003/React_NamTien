@@ -138,7 +138,7 @@ function Post() {
                 <Loader />
             ) : (
                 <div className={cx('container', 'product_container')}>
-                    <div className="row">
+                    <div className="row pe-4">
                         {posts.map((post, index) => (
                             <div key={index} className={cx('col-lg-4', 'mt-5')}>
                                 <div className={cx('productItem')}>
@@ -146,8 +146,12 @@ function Post() {
                                     <div className={cx('productItem__content')}>
                                         <h2>{post.title}</h2>
                                         <div className={cx('productItem__description')}>
-                                            <span><span style={{fontWeight: '600'}}>Mô tả:</span> {post.description}</span>
-                                            <span className={cx('mt-4')}><span style={{fontWeight: '600'}}>Tác giả:</span> {post.auth}</span>
+                                            <span>
+                                                <span style={{ fontWeight: '600' }}>Mô tả:</span> {post.description}
+                                            </span>
+                                            <span className={cx('mt-4')}>
+                                                <span style={{ fontWeight: '600' }}>Tác giả:</span> {post.auth}
+                                            </span>
                                         </div>
                                     </div>
                                     <div className={cx('productItem__action')}>

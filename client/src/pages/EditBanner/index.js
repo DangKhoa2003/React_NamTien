@@ -82,7 +82,7 @@ function EditBanner() {
                 <Loader />
             ) : (
                 <div className={cx('container', 'product_container')}>
-                    <div className="row">
+                    <div className="row pe-4">
                         {banners.map((banner, index) => (
                             <div key={index} className={cx('col-lg-4', 'mt-5')}>
                                 <div className={cx('productItem')}>

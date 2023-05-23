@@ -310,6 +310,10 @@ $desktop-width: 1024px;
         width: 100%;
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
+
+        @include mobile {
+            object-fit: contain;
+        }
     }
     .productItem__content {
         width: 100%;

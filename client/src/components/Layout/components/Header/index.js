@@ -62,30 +62,49 @@ function Header() {
                             'mobile-menu__list',
                         )}
                     >
-                        <li>
+                        <li onClick={handleClose}>
                             <Link to="/">Home</Link>
                         </li>
-                        <li>
+
+                        <li onClick={handleClose}>
                             <Link to="/iron">Sắt Mỹ Thuật</Link>
                         </li>
-                        <li>
+
+                        <li onClick={handleClose}>
                             <Link to="/stair">Cầu Thang Sắt</Link>
                         </li>
-                        <li>
+
+                        <li onClick={handleClose}>
                             <Link to="/fence">Hàng Rào</Link>
                         </li>
-                        <li>
+
+                        <li onClick={handleClose}>
                             <Link to="/roof">Mái Tôn</Link>
                         </li>
-                        <li>
+
+                        <li onClick={handleClose}>
                             <Link to="/bulkhead">Vách Ngăn</Link>
                         </li>
-                        <li>
+
+                        <li onClick={handleClose}>
                             <Link to="/aluminumDoor">Cửa Nhôm</Link>
                         </li>
-                        <li>
+
+                        <li onClick={handleClose}>
                             <Link to="/contact">Liên Hệ</Link>
                         </li>
+
+                        <li onClick={handleClose}>
+                            <Link to={admin ? '/newProduct' : '/admin'}>Admin</Link>
+                        </li>
+
+                        {admin && (
+                            <li onClick={handleClose}>
+                                <Link onClick={handleRemoveAdmin} to="/">
+                                    Log out
+                                </Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>
@@ -105,9 +124,9 @@ function Header() {
 
                             {admin && (
                                 <h4>
-                                    <a onClick={handleRemoveAdmin} href="/">
+                                    <Link onClick={handleRemoveAdmin} to="/">
                                         Log out
-                                    </a>
+                                    </Link>
                                 </h4>
                             )}
                         </div>

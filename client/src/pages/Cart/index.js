@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 function Cart() {
     let cartsInLocal = JSON.parse(localStorage.getItem('cart'));
     const [quantity, setQuantity] = useState(1);
+    const form = useRef();
     const {
         register,
         handleSubmit,
@@ -58,6 +59,13 @@ function Cart() {
             setQuantity(cart[index].quantity);
             localStorage.setItem('cart', JSON.stringify({ cartAr: cart }));
         }
+    };
+
+    const onSubmit = (data) => {
+        data.date = value;
+        data.cart = cart;
+
+        console.log(data);
     };
 
     useEffect(() => {
@@ -107,13 +115,7 @@ function Cart() {
 
     return (
         <section className={cx('bg_dark')}>
-            <form
-                onSubmit={handleSubmit((data) => {
-                    data.date = value;
-                    data.cart = cart;
-                    console.log(data);
-                })}
-            >
+            <form ref={form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={cx('container')}>
                     <div className={cx('row')}>
                         <div className={cx('col l-6')}>

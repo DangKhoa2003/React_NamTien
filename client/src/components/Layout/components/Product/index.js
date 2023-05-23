@@ -2,7 +2,9 @@ import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
 import { FiPhoneCall } from 'react-icons/fi';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { useDispatch, useSelector } from 'react-redux';
 import { likeProduct } from '~/actions/products';
 import { buyProduct } from '~/actions/cart';
@@ -11,6 +13,7 @@ const cx = classNames.bind(styles);
 function Product({ prod }) {
     const iconHeartRef = useRef();
     const dispatch = useDispatch();
+    const MySwal = withReactContent(Swal);
     let carts = useSelector((state) => state.cartReducer);
     let cartsInLocal = JSON.parse(localStorage.getItem('cart'));
     const toggleHeart = function () {
@@ -21,12 +24,22 @@ function Product({ prod }) {
         }
     };
 
+    const contactProduct = () => {
+        dispatch(buyProduct(prod));
+        MySwal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Thêm sản phẩm thành công ❤️',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    };
+
     useEffect(() => {
         if (carts.cartAr !== cartsInLocal.cartAr) {
             carts.cartAr = cartsInLocal.cartAr;
         }
     }, []);
-    
 
     useEffect(() => {
         if (carts.cartAr.length > 0) {
@@ -55,7 +68,7 @@ function Product({ prod }) {
                             <span>{prod.likeCount}</span>
                         </div>
 
-                        <button onClick={() => dispatch(buyProduct(prod))} className={cx('product__allButtons-buy')}>
+                        <button onClick={contactProduct} className={cx('product__allButtons-buy')}>
                             <FiPhoneCall />
                             Liên Hệ
                         </button>

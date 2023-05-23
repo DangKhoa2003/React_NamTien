@@ -46,7 +46,7 @@ function Contact() {
     };
     return (
         <section className={cx('container', 'wrapper')}>
-            <div className={cx('row')}>
+            <div className={cx('row', 'customPd-5')}>
                 <div className={cx('col-lg-5', 'col-md-12', 'col-sm-12', 'contact-us')}>
                     <h1 className={cx('title')}>Contact us</h1>
                     <p>Our friendly team would love to hear from you!</p>
