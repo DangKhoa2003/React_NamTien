@@ -15,7 +15,7 @@ function Product({ prod }) {
     const dispatch = useDispatch();
     const MySwal = withReactContent(Swal);
     let carts = useSelector((state) => state.cartReducer);
-    let cartsInLocal = JSON.parse(localStorage.getItem('cart'));
+    let cartsInLocal = JSON.parse(localStorage.getItem('cart')) || {};
     const toggleHeart = function () {
         if (iconHeartRef.current.classList.contains('active')) {
             iconHeartRef.current.classList.remove('active');
@@ -36,16 +36,16 @@ function Product({ prod }) {
     };
 
     useEffect(() => {
-        if (carts.cartAr !== cartsInLocal.cartAr) {
-            carts.cartAr = cartsInLocal.cartAr;
-        }
-    }, []);
-
-    useEffect(() => {
         if (carts.cartAr.length > 0) {
             localStorage.setItem('cart', JSON.stringify(carts));
         }
     }, [carts]);
+
+    useEffect(() => {
+        if (carts.cartAr !== cartsInLocal.cartAr) {
+            carts.cartAr = cartsInLocal.cartAr;
+        }
+    }, []);
 
     return (
         <div className={cx('col-lg-3', 'product', 'col-md-6', 'col-sm-12')}>

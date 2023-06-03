@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  
 import AOS from 'aos';
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import 'aos/dist/aos.css';
