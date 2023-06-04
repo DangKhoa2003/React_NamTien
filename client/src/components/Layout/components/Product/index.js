@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
 import { FiPhoneCall } from 'react-icons/fi';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,11 +11,12 @@ import { buyProduct } from '~/actions/cart';
 
 const cx = classNames.bind(styles);
 function Product({ prod }) {
+    const [carts] = useState({ cartAr: [] });
+    let cartsInLocal = JSON.parse(localStorage.getItem('cart'));
     const iconHeartRef = useRef();
     const dispatch = useDispatch();
+    let cartReducer = useSelector((state) => state.cartReducer);
     const MySwal = withReactContent(Swal);
-    let carts = useSelector((state) => state.cartReducer);
-    let cartsInLocal = JSON.parse(localStorage.getItem('cart')) || {};
     const toggleHeart = function () {
         if (iconHeartRef.current.classList.contains('active')) {
             iconHeartRef.current.classList.remove('active');
@@ -36,17 +37,18 @@ function Product({ prod }) {
     };
 
     useEffect(() => {
-        if (carts.cartAr.length > 0) {
-            localStorage.setItem('cart', JSON.stringify(carts));
-        }
-    }, [carts]);
+        localStorage.setItem('cart', JSON.stringify(cartReducer));
+    }, [cartReducer, carts]);
 
     useEffect(() => {
-        if (carts.cartAr !== cartsInLocal.cartAr) {
-            carts.cartAr = cartsInLocal.cartAr;
+        if (cartReducer === null || cartsInLocal === null) {
+            cartReducer = carts;
+            cartsInLocal = carts;
+        }
+        if (cartReducer.cartAr !== cartsInLocal.cartAr) {
+            cartReducer.cartAr = cartsInLocal.cartAr;
         }
     }, []);
-
     return (
         <div className={cx('col-lg-3', 'product', 'col-md-6', 'col-sm-12')}>
             <div className={cx('product_div')}>
