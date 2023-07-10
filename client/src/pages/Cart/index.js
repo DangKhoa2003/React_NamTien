@@ -242,7 +242,7 @@ function Cart() {
                                             <Datepicker
                                                 id="date"
                                                 primaryColor={'indigo'}
-                                                useRange={false}
+                                                useRange={false}  
                                                 value={value}
                                                 onChange={handleValueChange}
                                                 displayFormat={'DD/MM/YYYY'}
